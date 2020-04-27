@@ -1,0 +1,22 @@
+﻿<Window x:Class="FireForget.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FireForget"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="numbers.jpg"/>
+        </Grid.Background>
+        <Button x:Name="btn_start" Content="Avvia CountDown" HorizontalAlignment="Left" Margin="161,105,0,0" VerticalAlignment="Top" Width="180" Click="Btn_start_Click" FontSize="20"/>
+        <Button x:Name="btn_stop" Content="Ferma Task" HorizontalAlignment="Left" Margin="430,105,0,0" VerticalAlignment="Top" Width="180" Click="Btn_stop_Click" FontSize="20"/>
+        <Label Content="numero" HorizontalAlignment="Left" Margin="345,272,0,0" VerticalAlignment="Top" FontSize="20" Width="79">
+            <Label.Background>
+                <SolidColorBrush Color="#FF35A3FF" Opacity="0.7"/>
+            </Label.Background>
+        </Label>
+
+    </Grid>
+</Window>
