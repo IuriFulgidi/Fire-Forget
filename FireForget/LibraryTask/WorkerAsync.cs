@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 
 namespace LibraryTask
 {
-    //classe worker base per fire&forget
-    public class Worker
+    //classe worker asincrona
+    public class WorkerAsync
     {
         CancellationTokenSource Cts;
         int Max;
         int Delay;
 
-        public Worker(int max,int delay,CancellationTokenSource cts)
+        public WorkerAsync(int max, int delay, CancellationTokenSource cts)
         {
             Max = max;
             Delay = delay;
             Cts = cts;
         }
 
-        public void CountDown()
+        public async Task CountDown()
         {
-            Task.Factory.StartNew(Count);
+            await Task.Factory.StartNew(Count);
         }
 
         private void Count()

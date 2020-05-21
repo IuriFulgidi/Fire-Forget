@@ -29,7 +29,7 @@ namespace FireForget
 
         CancellationTokenSource cts;
 
-        private void Btn_start_Click(object sender, RoutedEventArgs e)
+        private async void Btn_start_Click(object sender, RoutedEventArgs e)
         {
             cts = new CancellationTokenSource();
 
@@ -38,11 +38,15 @@ namespace FireForget
             //wrkr.CountDown();
 
             //ProgressUpdate
-            IProgress<int> p = new Progress<int>(UpdateUI);
-            WorkerProgress wrkrp = new WorkerProgress(10, 1000, cts, p);
-            wrkrp.CountDown();
+            //IProgress<int> p = new Progress<int>(UpdateUI);
+            //WorkerProgress wrkrp = new WorkerProgress(10, 1000, cts, p);
+            //wrkrp.CountDown();
 
-            MessageBox.Show("hey yo wassup, i don't care about the other thread");
+            //Async
+            WorkerAsync wrkra = new WorkerAsync(10, 1000, cts);
+            await wrkra.CountDown();
+
+            MessageBox.Show("hey yo wassup, i wait the other thread");
         }
 
         private void UpdateUI(int num)
