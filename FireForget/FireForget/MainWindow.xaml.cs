@@ -33,11 +33,21 @@ namespace FireForget
         {
             cts = new CancellationTokenSource();
 
-            Worker wrkr = new Worker(10,1000,cts );
+            //Fire&Forgtet
+            //Worker wrkr = new Worker(10,1000,cts );
+            //wrkr.CountDown();
 
-            wrkr.CountDown();
+            //ProgressUpdate
+            IProgress<int> p = new Progress<int>(UpdateUI);
+            WorkerProgress wrkrp = new WorkerProgress(10, 1000, cts, p);
+            wrkrp.CountDown();
 
-            MessageBox.Show("hey yo wassup, i don't give a shit about the other guy");
+            MessageBox.Show("hey yo wassup, i don't care about the other thread");
+        }
+
+        private void UpdateUI(int num)
+        {
+            lbl_counter.Content = num.ToString();
         }
 
         private void Btn_stop_Click(object sender, RoutedEventArgs e)

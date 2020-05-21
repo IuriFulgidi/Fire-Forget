@@ -7,18 +7,22 @@ using System.Threading.Tasks;
 
 namespace LibraryTask
 {
-    //classe worker fire&forget
-    public class Worker
+    //classe worker con Progress update
+    public class WorkerProgress
     {
         CancellationTokenSource Cts;
+
+        IProgress<int> Progress;
+
         int Max;
         int Delay;
 
-        public Worker(int max,int delay,CancellationTokenSource cts)
+        public WorkerProgress(int max, int delay, CancellationTokenSource cts, IProgress<int> progress)
         {
             Max = max;
             Delay = delay;
             Cts = cts;
+            Progress = progress;
         }
 
         public void CountDown()
@@ -30,11 +34,17 @@ namespace LibraryTask
         {
             for (int i = Max; i > 0; i--)
             {
+                NotifyProgress(Progress, i);
                 if (Cts.IsCancellationRequested)
                     break;
 
                 Thread.Sleep(Delay);
             }
+        }
+
+        private void NotifyProgress(IProgress<int> progress, int i)
+        {
+            progress.Report(i);
         }
     }
 }

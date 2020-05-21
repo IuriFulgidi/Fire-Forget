@@ -12,9 +12,9 @@
         </Grid.Background>
         <Button x:Name="btn_start" Content="Avvia CountDown" HorizontalAlignment="Left" Margin="161,105,0,0" VerticalAlignment="Top" Width="180" Click="Btn_start_Click" FontSize="20"/>
         <Button x:Name="btn_stop" Content="Ferma Task" HorizontalAlignment="Left" Margin="430,105,0,0" VerticalAlignment="Top" Width="180" Click="Btn_stop_Click" FontSize="20"/>
-        <Label Content="numero" HorizontalAlignment="Left" Margin="345,272,0,0" VerticalAlignment="Top" FontSize="20" Width="79">
+        <Label x:Name="lbl_counter" Content="numero" HorizontalAlignment="Left" Margin="345,272,0,0" VerticalAlignment="Top" FontSize="20" Width="79">
             <Label.Background>
-                <SolidColorBrush Color="#FF35A3FF" Opacity="0.7"/>
+                <SolidColorBrush Color="#FF35A3FF" Opacity="0.7"/> 
             </Label.Background>
         </Label>
 
