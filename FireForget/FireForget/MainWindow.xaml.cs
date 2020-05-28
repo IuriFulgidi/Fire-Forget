@@ -38,13 +38,18 @@ namespace FireForget
             //wrkr.CountDown();
 
             //ProgressUpdate
-            //IProgress<int> p = new Progress<int>(UpdateUI);
-            //WorkerProgress wrkrp = new WorkerProgress(10, 1000, cts, p);
+            //IProgress<int> p1 = new Progress<int>(UpdateUI);
+            //WorkerProgress wrkrp = new WorkerProgress(10, 1000, cts, p1);
             //wrkrp.CountDown();
 
             //Async
-            WorkerAsync wrkra = new WorkerAsync(10, 1000, cts);
-            await wrkra.CountDown();
+            //WorkerAsync wrkra = new WorkerAsync(10, 1000, cts);
+            //await wrkra.CountDown();
+
+            //Async Progress
+            IProgress<int> p2 = new Progress<int>(UpdateUI);
+            WorkerProgressAsync wrkrpa = new WorkerProgressAsync(10, 1000, cts,p2);
+            await wrkrpa.CountDown();
 
             MessageBox.Show("hey yo wassup, i wait the other thread");
         }
