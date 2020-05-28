@@ -48,7 +48,8 @@ namespace FireForget
 
             //Async Progress
             IProgress<int> p2 = new Progress<int>(UpdateUI);
-            WorkerProgressAsync wrkrpa = new WorkerProgressAsync(10, 1000, cts,p2);
+            Semaphore s = new Semaphore(1,1);
+            WorkerProgressAsync wrkrpa = new WorkerProgressAsync(10, 1000, cts, p2, s);
             await wrkrpa.CountDown();
 
             MessageBox.Show("hey yo wassup, i wait the other thread");
